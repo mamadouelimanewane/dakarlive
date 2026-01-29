@@ -842,6 +842,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMapToggle();
     setupExtraMapButtons();
 
+    // If map view is default active, initialize it
+    const activeViewBtn = document.querySelector('.view-btn.active');
+    if (activeViewBtn && activeViewBtn.dataset.view === 'map') {
+        initMap();
+        setTimeout(() => {
+            if (map) map.invalidateSize();
+            updateMapMarkers();
+        }, 100);
+    }
+
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileNav = document.getElementById('mobileNav');
