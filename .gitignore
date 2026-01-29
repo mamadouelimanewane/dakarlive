@@ -46,3 +46,4 @@ ENV/
 *.bak
 *.backup
 *~
+.vercel

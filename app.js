@@ -427,9 +427,6 @@ function renderEvents() {
     } else {
         loadMoreBtn.style.display = 'inline-flex';
     }
-
-    // Update total count
-    document.getElementById('totalEvents').textContent = filteredEvents.length;
 }
 
 // ===================================
