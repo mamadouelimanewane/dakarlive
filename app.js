@@ -418,12 +418,12 @@ function initMap() {
         }
 
         // Default center: Dakar Plateau
-        map = L.map('eventMap').setView([14.7167, -17.4677], 12);
+        map = L.map('eventMap').setView([14.6928, -17.4467], 13);
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-            subdomains: 'abcd',
-            maxZoom: 20
+        // Standard OSM for maximum compatibility and clarity
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
         }).addTo(map);
 
         // Fix for Leaflet icons
@@ -560,8 +560,11 @@ function renderEvents() {
             if (map) {
                 map.invalidateSize();
                 updateMapMarkers();
+                if (markers.length === 0) {
+                    map.setView([14.6928, -17.4467], 13);
+                }
             }
-        }, 100);
+        }, 200);
         document.getElementById('loadMore').style.display = 'none';
         return;
     } else {
