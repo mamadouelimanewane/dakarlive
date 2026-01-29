@@ -827,6 +827,12 @@ function setupNewsletterForm() {
 // INITIALIZATION
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Determine initial view and init map if needed
+    const activeViewBtn = document.querySelector('.view-btn.active');
+    if (activeViewBtn && activeViewBtn.dataset.view === 'map') {
+        initMap();
+    }
+
     // Initial render
     renderEvents();
 
@@ -842,14 +848,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMapToggle();
     setupExtraMapButtons();
 
-    // If map view is default active, initialize it
-    const activeViewBtn = document.querySelector('.view-btn.active');
-    if (activeViewBtn && activeViewBtn.dataset.view === 'map') {
-        initMap();
+    // Final map check
+    if (map) {
         setTimeout(() => {
-            if (map) map.invalidateSize();
+            map.invalidateSize();
             updateMapMarkers();
-        }, 100);
+        }, 500);
     }
 
     // Mobile menu toggle
