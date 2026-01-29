@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DakarLive Admin - Backoffice</title>
+    <meta name="description" content="Backoffice de gestion pour DakarLive">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>DakarLive</h1>
+                <p>Backoffice Administration</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" placeholder="admin" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">Se connecter</button>
+                <div class="login-hint">
+                    <small>💡 Utilisez : <strong>admin</strong> / <strong>admin123</strong></small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-container" id="adminContainer" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>DakarLive</h2>
+                <span class="admin-badge">Admin</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Tableau de bord</span>
+                </a>
+
+                <a href="#" class="nav-item" data-section="events">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Événements</span>
+                    <span class="badge">12</span>
+                </a>
+
+                <a href="#" class="nav-item" data-section="venues">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Lieux</span>
+                    <span class="badge">8</span>
+                </a>
+
+                <a href="#" class="nav-item" data-section="artists">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Artistes</span>
+                    <span class="badge">15</span>
+                </a>
+
+                <a href="#" class="nav-item" data-section="users">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Utilisateurs</span>
+                    <span class="badge">247</span>
+                </a>
+
+                <a href="#" class="nav-item" data-section="analytics">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="20" x2="12" y2="10"></line>
+                        <line x1="18" y1="20" x2="18" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="16"></line>
+                    </svg>
+                    <span>Statistiques</span>
+                </a>
+
+                <a href="#" class="nav-item" data-section="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M12 1v6m0 6v6m5.66-13.66l-4.24 4.24m0 6l-4.24 4.24M23 12h-6m-6 0H1m17.66 5.66l-4.24-4.24m0-6l-4.24-4.24">
+                        </path>
+                    </svg>
+                    <span>Paramètres</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name">Admin</div>
+                        <div class="user-role">Administrateur</div>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <h1 id="sectionTitle">Tableau de bord</h1>
+                    <p id="sectionSubtitle">Vue d'ensemble de la plateforme</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn-icon" title="Notifications">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="btn-primary" id="addNewBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <span>Ajouter</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboardSection" class="content-section active">
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #ff8c32, #ff6b1a);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-label">Événements</div>
+                                <div class="stat-value">1,247</div>
+                                <div class="stat-change positive">+12% ce mois</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #50c878, #3da85f);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-label">Utilisateurs</div>
+                                <div class="stat-value">24,567</div>
+                                <div class="stat-change positive">+8% ce mois</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #e63946, #c92a35);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-label">Lieux</div>
+                                <div class="stat-value">156</div>
+                                <div class="stat-change positive">+5 nouveaux</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-label">Artistes</div>
+                                <div class="stat-value">432</div>
+                                <div class="stat-change positive">+23 nouveaux</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="charts-row">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Événements par mois</h3>
+                                <select class="chart-select">
+                                    <option>2026</option>
+                                    <option>2025</option>
+                                </select>
+                            </div>
+                            <div class="chart-placeholder" id="eventsChart">
+                                <canvas id="eventsChartCanvas"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Genres populaires</h3>
+                            </div>
+                            <div class="genre-stats">
+                                <div class="genre-item">
+                                    <div class="genre-info">
+                                        <span class="genre-name">Mbalax</span>
+                                        <span class="genre-count">342 événements</span>
+                                    </div>
+                                    <div class="genre-bar">
+                                        <div class="genre-progress" style="width: 85%; background: #ff8c32;"></div>
+                                    </div>
+                                </div>
+                                <div class="genre-item">
+                                    <div class="genre-info">
+                                        <span class="genre-name">Afrobeat</span>
+                                        <span class="genre-count">218 événements</span>
+                                    </div>
+                                    <div class="genre-bar">
+                                        <div class="genre-progress" style="width: 65%; background: #50c878;"></div>
+                                    </div>
+                                </div>
+                                <div class="genre-item">
+                                    <div class="genre-info">
+                                        <span class="genre-name">Hip-Hop</span>
+                                        <span class="genre-count">189 événements</span>
+                                    </div>
+                                    <div class="genre-bar">
+                                        <div class="genre-progress" style="width: 55%; background: #e63946;"></div>
+                                    </div>
+                                </div>
+                                <div class="genre-item">
+                                    <div class="genre-info">
+                                        <span class="genre-name">Jazz</span>
+                                        <span class="genre-count">156 événements</span>
+                                    </div>
+                                    <div class="genre-bar">
+                                        <div class="genre-progress" style="width: 45%; background: #6366f1;"></div>
+                                    </div>
+                                </div>
+                                <div class="genre-item">
+                                    <div class="genre-info">
+                                        <span class="genre-name">Reggae</span>
+                                        <span class="genre-count">124 événements</span>
+                                    </div>
+                                    <div class="genre-bar">
+                                        <div class="genre-progress" style="width: 35%; background: #fbbf24;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="activity-card">
+                        <h3>Activité récente</h3>
+                        <div class="activity-list" id="activityList">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Events Section -->
+                <section id="eventsSection" class="content-section">
+                    <div class="section-toolbar">
+                        <div class="search-box">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input type="text" placeholder="Rechercher un événement..." id="searchEvents">
+                        </div>
+                        <div class="toolbar-filters">
+                            <select class="filter-select">
+                                <option>Tous les genres</option>
+                                <option>Mbalax</option>
+                                <option>Afrobeat</option>
+                                <option>Jazz</option>
+                                <option>Hip-Hop</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>Tous les statuts</option>
+                                <option>Publié</option>
+                                <option>Brouillon</option>
+                                <option>Archivé</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="data-table">
+                        <table id="eventsTable">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="selectAll"></th>
+                                    <th>Événement</th>
+                                    <th>Genre</th>
+                                    <th>Date</th>
+                                    <th>Lieu</th>
+                                    <th>Statut</th>
+                                    <th>Vues</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eventsTableBody">
+                                <!-- Will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Other sections will be populated by JS -->
+                <section id="venuesSection" class="content-section">
+                    <div class="section-toolbar">
+                        <div class="search-box">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input type="text" placeholder="Rechercher un lieu...">
+                        </div>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Lieu</th>
+                                    <th>Type</th>
+                                    <th>Quartier</th>
+                                    <th>Capacité</th>
+                                    <th>Événements</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="venuesTableBody">
+                                <!-- Will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="artistsSection" class="content-section">
+                    <div class="artists-grid" id="artistsGrid">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </section>
+
+                <section id="usersSection" class="content-section">
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Utilisateur</th>
+                                    <th>Email</th>
+                                    <th>Inscription</th>
+                                    <th>Événements sauvegardés</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="analyticsSection" class="content-section">
+                    <h2>Statistiques détaillées</h2>
+                    <p>Section en développement...</p>
+                </section>
+
+                <section id="settingsSection" class="content-section">
+                    <h2>Paramètres</h2>
+                    <p>Section en développement...</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Add/Edit -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nouvel événement</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form class="modal-form" id="eventForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Titre de l'événement</label>
+                        <input type="text" name="title" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <select name="genre" required>
+                            <option value="mbalax">Mbalax</option>
+                            <option value="afrobeat">Afrobeat</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="hip-hop">Hip-Hop</option>
+                            <option value="reggae">Reggae</option>
+                            <option value="traditionnel">Traditionnel</option>
+                            <option value="electro">Électro</option>
+                            <option value="rnb">R&B</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Heure</label>
+                        <input type="time" name="time" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Lieu</label>
+                        <input type="text" name="venue" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Quartier</label>
+                        <select name="quartier" required>
+                            <option value="plateau">Plateau</option>
+                            <option value="almadies">Almadies</option>
+                            <option value="ngor">Ngor</option>
+                            <option value="yoff">Yoff</option>
+                            <option value="mermoz">Mermoz</option>
+                            <option value="sacre-coeur">Sacré-Cœur</option>
+                            <option value="medina">Médina</option>
+                            <option value="ouakam">Ouakam</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Prix</label>
+                        <input type="text" name="price" placeholder="5,000 FCFA">
+                    </div>
+                    <div class="form-group">
+                        <label>Type de lieu</label>
+                        <select name="venueType" required>
+                            <option value="club">Club</option>
+                            <option value="bar">Bar</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="theatre">Théâtre</option>
+                            <option value="galerie">Galerie</option>
+                            <option value="plage">Plage</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" rows="4"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Annuler</button>
+                    <button type="submit" class="btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-app.js"></script>
+</body>
+
+</html>

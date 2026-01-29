@@ -1,0 +1,31 @@
+{
+  "name": "dakarlive",
+  "version": "1.0.0",
+  "description": "Plateforme d'événements culturels pour Dakar, Sénégal - Clone de Halibuts.com",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "start:node": "npx http-server -p 8000",
+    "start:php": "php -S localhost:8000"
+  },
+  "keywords": [
+    "dakar",
+    "senegal",
+    "events",
+    "concerts",
+    "culture",
+    "music",
+    "mbalax",
+    "afrobeat"
+  ],
+  "author": "DakarLive Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dakarlive/dakarlive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dakarlive/dakarlive/issues"
+  },
+  "homepage": "https://dakarlive.sn"
+}
