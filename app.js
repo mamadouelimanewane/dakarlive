@@ -320,6 +320,7 @@ let map = null;
 let markers = [];
 let userLocation = null;
 let filteredEvents = [];
+let currentView = 'map'; // Default view
 
 // ===================================
 // UTILITY FUNCTIONS
@@ -409,22 +410,34 @@ function updateFilteredEvents() {
 function initMap() {
     if (map) return;
 
-    // Default center: Dakar Plateau
-    map = L.map('eventMap').setView([14.7167, -17.4677], 12);
+    try {
+        const mapEl = document.getElementById('eventMap');
+        if (!mapEl) {
+            console.error('Map element not found');
+            return;
+        }
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-        subdomains: 'abcd',
-        maxZoom: 20
-    }).addTo(map);
+        // Default center: Dakar Plateau
+        map = L.map('eventMap').setView([14.7167, -17.4677], 12);
 
-    // Fix for Leaflet icons not appearing correctly with some build tools
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-    });
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        // Fix for Leaflet icons
+        delete L.Icon.Default.prototype._getIconUrl;
+        L.Icon.Default.mergeOptions({
+            iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+            iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        });
+
+        console.log('Map initialized successfully');
+    } catch (e) {
+        console.error('Error initializing map:', e);
+    }
 }
 
 function updateMapMarkers() {
@@ -529,16 +542,35 @@ function renderEvents() {
     const eventsList = document.getElementById('eventsList');
     const mapContainer = document.getElementById('mapContainer');
 
-    // Handle map visibility
-    const activeViewBtn = document.querySelector('.view-btn.active');
-    if (activeViewBtn && activeViewBtn.dataset.view === 'map') {
+    // Update view toggle buttons active state
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        if (btn.dataset.view === currentView) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    // Handle view visibility
+    if (currentView === 'map') {
         eventsList.style.display = 'none';
         mapContainer.style.display = 'block';
-        updateMapMarkers();
+        initMap();
+        setTimeout(() => {
+            if (map) {
+                map.invalidateSize();
+                updateMapMarkers();
+            }
+        }, 100);
         document.getElementById('loadMore').style.display = 'none';
         return;
     } else {
-        eventsList.style.display = 'flex';
+        eventsList.style.display = currentView === 'grid' ? 'grid' : 'flex';
+        if (currentView === 'grid') {
+            eventsList.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
+        } else {
+            eventsList.style.flexDirection = 'column';
+        }
         mapContainer.style.display = 'none';
     }
 
@@ -700,16 +732,7 @@ function setupViewControls() {
 
     viewBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const view = btn.dataset.view;
-
-            viewBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            if (view === 'map') {
-                initMap();
-                setTimeout(() => map.invalidateSize(), 100);
-            }
-
+            currentView = btn.dataset.view;
             renderEvents();
         });
     });
@@ -827,12 +850,6 @@ function setupNewsletterForm() {
 // INITIALIZATION
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Determine initial view and init map if needed
-    const activeViewBtn = document.querySelector('.view-btn.active');
-    if (activeViewBtn && activeViewBtn.dataset.view === 'map') {
-        initMap();
-    }
-
     // Initial render
     renderEvents();
 
@@ -847,14 +864,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNewsletterForm();
     setupMobileMapToggle();
     setupExtraMapButtons();
-
-    // Final map check
-    if (map) {
-        setTimeout(() => {
-            map.invalidateSize();
-            updateMapMarkers();
-        }, 500);
-    }
 
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
