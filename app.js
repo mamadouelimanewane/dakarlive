@@ -796,6 +796,22 @@ function setupMobileMapToggle() {
     }
 }
 
+function setupExtraMapButtons() {
+    const heroMapBtn = document.getElementById('heroMapBtn');
+    const mobileFabMap = document.getElementById('mobileFabMap');
+    const mapViewBtn = document.getElementById('mapViewBtn');
+
+    const openMap = () => {
+        if (mapViewBtn) {
+            mapViewBtn.click();
+            document.getElementById('mapContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
+    if (heroMapBtn) heroMapBtn.addEventListener('click', openMap);
+    if (mobileFabMap) mobileFabMap.addEventListener('click', openMap);
+}
+
 function setupNewsletterForm() {
     const form = document.querySelector('.newsletter-form');
     if (!form) return;
@@ -824,6 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSearchFilters();
     setupNewsletterForm();
     setupMobileMapToggle();
+    setupExtraMapButtons();
 
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');

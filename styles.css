@@ -238,11 +238,40 @@ textarea {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-hero-map {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-lg);
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all var(--transition-base);
+    box-shadow: 0 10px 20px rgba(255, 140, 50, 0.3);
+}
+
+.btn-hero-map:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 140, 50, 0.4);
+    background: var(--primary-dark);
 }
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 0;
@@ -1486,4 +1515,34 @@ button.quick-filter-box {
     .quick-filters-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .fab-map {
+        display: flex;
+    }
+}
+
+/* Floating Action Button */
+.fab-map {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(255, 140, 50, 0.5);
+    z-index: 1000;
+    transition: all var(--transition-base);
+}
+
+.fab-map:hover {
+    transform: scale(1.1);
+}
+
+.fab-map:active {
+    transform: scale(0.9);
 }
