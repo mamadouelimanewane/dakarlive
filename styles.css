@@ -883,13 +883,21 @@ textarea {
 /* Tablet & Desktop */
 @media (max-width: 1024px) {
     .content-layout {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: var(--spacing-lg);
     }
 
     .filters-sidebar {
         position: static;
         max-height: none;
+        order: 2;
+        /* Push filters below events */
+    }
+
+    .events-container {
+        order: 1;
+        /* Keep events on top */
     }
 
     .events-header h2 {
