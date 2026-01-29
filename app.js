@@ -781,6 +781,21 @@ function setupSearchFilters() {
     });
 }
 
+function setupMobileMapToggle() {
+    const mobileMapToggle = document.getElementById('mobileMapToggle');
+    const mapViewBtn = document.getElementById('mapViewBtn');
+
+    if (mobileMapToggle && mapViewBtn) {
+        mobileMapToggle.addEventListener('click', () => {
+            // Trigger the desktop map button's logic
+            mapViewBtn.click();
+
+            // Scroll to the map
+            document.getElementById('mapContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+}
+
 function setupNewsletterForm() {
     const form = document.querySelector('.newsletter-form');
     if (!form) return;
@@ -808,6 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupProximitySearch();
     setupSearchFilters();
     setupNewsletterForm();
+    setupMobileMapToggle();
 
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
