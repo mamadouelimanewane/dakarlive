@@ -1,5 +1,5 @@
 // ===================================
-// DATA - Sample Events for Dakar
+// DATA - Sample Events for Dakar with Coordinates
 // ===================================
 const eventsData = [
     {
@@ -13,7 +13,9 @@ const eventsData = [
         quartier: "plateau",
         address: "Boulevard de la République, Plateau",
         price: "15,000 FCFA",
-        description: "Concert exceptionnel du roi du Mbalax"
+        description: "Concert exceptionnel du roi du Mbalax",
+        lat: 14.6756,
+        lng: -17.4339
     },
     {
         id: 2,
@@ -26,7 +28,9 @@ const eventsData = [
         quartier: "almadies",
         address: "Route des Almadies",
         price: "5,000 FCFA",
-        description: "Les meilleurs DJ afrobeat de Dakar"
+        description: "Les meilleurs DJ afrobeat de Dakar",
+        lat: 14.7486,
+        lng: -17.5147
     },
     {
         id: 3,
@@ -39,7 +43,9 @@ const eventsData = [
         quartier: "ouakam",
         address: "Les Mamelles, Ouakam",
         price: "8,000 FCFA",
-        description: "Soirée jazz avec vue panoramique sur Dakar"
+        description: "Soirée jazz avec vue panoramique sur Dakar",
+        lat: 14.7219,
+        lng: -17.5125
     },
     {
         id: 4,
@@ -52,7 +58,9 @@ const eventsData = [
         quartier: "medina",
         address: "Médina, près du marché Kermel",
         price: "3,000 FCFA",
-        description: "Open mic et battles de rap"
+        description: "Open mic et battles de rap",
+        lat: 14.6795,
+        lng: -17.4423
     },
     {
         id: 5,
@@ -65,7 +73,9 @@ const eventsData = [
         quartier: "ngor",
         address: "Île de Ngor",
         price: "Gratuit",
-        description: "Festival reggae en plein air sur la plage"
+        description: "Festival reggae en plein air sur la plage",
+        lat: 14.7554,
+        lng: -17.5148
     },
     {
         id: 6,
@@ -78,7 +88,9 @@ const eventsData = [
         quartier: "yoff",
         address: "Route de l'Aéroport, Yoff",
         price: "2,000 FCFA",
-        description: "Démonstration de percussion traditionnelle sénégalaise"
+        description: "Démonstration de percussion traditionnelle sénégalaise",
+        lat: 14.7441,
+        lng: -17.4725
     },
     {
         id: 7,
@@ -91,7 +103,9 @@ const eventsData = [
         quartier: "ngor",
         address: "Plage de Ngor",
         price: "7,000 FCFA",
-        description: "DJ set électro au coucher du soleil"
+        description: "DJ set électro au coucher du soleil",
+        lat: 14.7502,
+        lng: -17.5122
     },
     {
         id: 8,
@@ -104,7 +118,9 @@ const eventsData = [
         quartier: "sacre-coeur",
         address: "Sacré-Cœur 3",
         price: "10,000 FCFA",
-        description: "Dîner-concert avec les meilleurs artistes R&B locaux"
+        description: "Dîner-concert avec les meilleurs artistes R&B locaux",
+        lat: 14.7118,
+        lng: -17.4667
     },
     {
         id: 9,
@@ -117,7 +133,9 @@ const eventsData = [
         quartier: "almadies",
         address: "Pointe des Almadies",
         price: "12,000 FCFA",
-        description: "Concert du prince du Mbalax nouvelle génération"
+        description: "Concert du prince du Mbalax nouvelle génération",
+        lat: 14.7456,
+        lng: -17.5258
     },
     {
         id: 10,
@@ -130,7 +148,9 @@ const eventsData = [
         quartier: "plateau",
         address: "89 Rue Joseph Gomis, Plateau",
         price: "6,000 FCFA",
-        description: "Fusion de jazz moderne et rythmes africains"
+        description: "Fusion de jazz moderne et rythmes africains",
+        lat: 14.6675,
+        lng: -17.4361
     },
     {
         id: 11,
@@ -143,7 +163,9 @@ const eventsData = [
         quartier: "yoff",
         address: "Plage de Yoff",
         price: "5,000 FCFA",
-        description: "Fête sur la plage avec DJ internationaux"
+        description: "Fête sur la plage avec DJ internationaux",
+        lat: 14.7562,
+        lng: -17.4589
     },
     {
         id: 12,
@@ -156,7 +178,9 @@ const eventsData = [
         quartier: "plateau",
         address: "Avenue Blaise Diagne, Plateau",
         price: "4,000 FCFA",
-        description: "Showcase des meilleurs rappeurs de Dakar"
+        description: "Showcase des meilleurs rappeurs de Dakar",
+        lat: 14.6698,
+        lng: -17.4392
     },
     {
         id: 13,
@@ -169,7 +193,9 @@ const eventsData = [
         quartier: "plateau",
         address: "Boulevard de la République, Plateau",
         price: "12,000 FCFA",
-        description: "Hommage au Mbalax traditionnel"
+        description: "Hommage au Mbalax traditionnel",
+        lat: 14.6756,
+        lng: -17.4339
     },
     {
         id: 14,
@@ -182,7 +208,9 @@ const eventsData = [
         quartier: "ouakam",
         address: "Les Mamelles, Ouakam",
         price: "7,000 FCFA",
-        description: "Jazz manouche avec vue sur l'océan"
+        description: "Jazz manouche avec vue sur l'océan",
+        lat: 14.7219,
+        lng: -17.5125
     },
     {
         id: 15,
@@ -195,7 +223,9 @@ const eventsData = [
         quartier: "medina",
         address: "Médina, près du marché Kermel",
         price: "4,000 FCFA",
-        description: "Découvrez les nouveaux talents du rap sénégalais"
+        description: "Découvrez les nouveaux talents du rap sénégalais",
+        lat: 14.6795,
+        lng: -17.4423
     },
     {
         id: 16,
@@ -208,7 +238,9 @@ const eventsData = [
         quartier: "almadies",
         address: "Route des Almadies",
         price: "6,000 FCFA",
-        description: "Soirée reggae roots avec sound system"
+        description: "Soirée reggae roots avec sound system",
+        lat: 14.7486,
+        lng: -17.5147
     },
     {
         id: 17,
@@ -221,7 +253,9 @@ const eventsData = [
         quartier: "yoff",
         address: "Route de l'Aéroport, Yoff",
         price: "3,000 FCFA",
-        description: "Concert de musique traditionnelle mandingue"
+        description: "Concert de musique traditionnelle mandingue",
+        lat: 14.7441,
+        lng: -17.4725
     },
     {
         id: 18,
@@ -234,7 +268,9 @@ const eventsData = [
         quartier: "ngor",
         address: "Île de Ngor",
         price: "8,000 FCFA",
-        description: "Festival de musique électronique sur la plage"
+        description: "Festival de musique électronique sur la plage",
+        lat: 14.7554,
+        lng: -17.5148
     },
     {
         id: 19,
@@ -247,7 +283,9 @@ const eventsData = [
         quartier: "sacre-coeur",
         address: "Sacré-Cœur 3",
         price: "9,000 FCFA",
-        description: "Soirée R&B dans une ambiance lounge"
+        description: "Soirée R&B dans une ambiance lounge",
+        lat: 14.7118,
+        lng: -17.4667
     },
     {
         id: 20,
@@ -260,7 +298,9 @@ const eventsData = [
         quartier: "almadies",
         address: "Pointe des Almadies",
         price: "10,000 FCFA",
-        description: "Les meilleurs DJ afrobeat d'Afrique de l'Ouest"
+        description: "Les meilleurs DJ afrobeat d'Afrique de l'Ouest",
+        lat: 14.7456,
+        lng: -17.5258
     }
 ];
 
@@ -276,6 +316,10 @@ let currentFilters = {
 
 let displayedEvents = 6;
 const eventsPerLoad = 6;
+let map = null;
+let markers = [];
+let userLocation = null;
+let filteredEvents = [];
 
 // ===================================
 // UTILITY FUNCTIONS
@@ -289,8 +333,20 @@ function formatDate(dateString) {
     };
 }
 
-function filterEvents() {
-    return eventsData.filter(event => {
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth's radius in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+function updateFilteredEvents() {
+    filteredEvents = eventsData.filter(event => {
         // Filter by genre
         if (currentFilters.genre.length > 0 && !currentFilters.genre.includes(event.genre)) {
             return false;
@@ -329,9 +385,73 @@ function filterEvents() {
                 return eventDate.getMonth() === today.getMonth() &&
                     eventDate.getFullYear() === today.getFullYear();
             default:
+                if (currentFilters.date.includes('-')) { // Custom date picker
+                    const customDate = new Date(currentFilters.date);
+                    return eventDate.toDateString() === customDate.toDateString();
+                }
                 return true;
         }
     });
+
+    // Sort by proximity if user location is available
+    if (userLocation) {
+        filteredEvents.sort((a, b) => {
+            const distA = calculateDistance(userLocation.lat, userLocation.lng, a.lat, a.lng);
+            const distB = calculateDistance(userLocation.lat, userLocation.lng, b.lat, b.lng);
+            return distA - distB;
+        });
+    }
+}
+
+// ===================================
+// MAP FUNCTIONS
+// ===================================
+function initMap() {
+    if (map) return;
+
+    // Default center: Dakar Plateau
+    map = L.map('eventMap').setView([14.7167, -17.4677], 12);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+    }).addTo(map);
+
+    // Fix for Leaflet icons not appearing correctly with some build tools
+    delete L.Icon.Default.prototype._getIconUrl;
+    L.Icon.Default.mergeOptions({
+        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    });
+}
+
+function updateMapMarkers() {
+    if (!map) return;
+
+    // Clear existing markers
+    markers.forEach(marker => map.removeLayer(marker));
+    markers = [];
+
+    filteredEvents.forEach(event => {
+        const marker = L.marker([event.lat, event.lng])
+            .addTo(map)
+            .bindPopup(`
+                <div class="map-popup-card">
+                    <div class="map-popup-title">${event.title}</div>
+                    <div class="map-popup-venue">${event.venue}</div>
+                    <div>${event.time} • ${event.price}</div>
+                    <a href="javascript:void(0)" class="map-popup-btn" onclick="viewEventDetails(${event.id})">Voir détails</a>
+                </div>
+            `);
+        markers.push(marker);
+    });
+
+    if (markers.length > 0) {
+        const group = new L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
+    }
 }
 
 // ===================================
@@ -339,6 +459,12 @@ function filterEvents() {
 // ===================================
 function renderEvent(event) {
     const dateInfo = formatDate(event.date);
+    let distanceHtml = '';
+
+    if (userLocation) {
+        const dist = calculateDistance(userLocation.lat, userLocation.lng, event.lat, event.lng);
+        distanceHtml = `<span class="event-distance">• À ${dist.toFixed(1)} km</span>`;
+    }
 
     return `
         <div class="event-card" data-event-id="${event.id}">
@@ -350,7 +476,7 @@ function renderEvent(event) {
             
             <div class="event-info">
                 <h3 class="event-title">${event.title}</h3>
-                <span class="event-genre">${getGenreLabel(event.genre)}</span>
+                <span class="event-genre">${getGenreLabel(event.genre)} ${distanceHtml}</span>
                 
                 <div class="event-venue">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -398,9 +524,23 @@ function getGenreLabel(genre) {
 }
 
 function renderEvents() {
-    const filteredEvents = filterEvents();
+    updateFilteredEvents();
     const eventsToShow = filteredEvents.slice(0, displayedEvents);
     const eventsList = document.getElementById('eventsList');
+    const mapContainer = document.getElementById('mapContainer');
+
+    // Handle map visibility
+    const activeViewBtn = document.querySelector('.view-btn.active');
+    if (activeViewBtn && activeViewBtn.dataset.view === 'map') {
+        eventsList.style.display = 'none';
+        mapContainer.style.display = 'block';
+        updateMapMarkers();
+        document.getElementById('loadMore').style.display = 'none';
+        return;
+    } else {
+        eventsList.style.display = 'flex';
+        mapContainer.style.display = 'none';
+    }
 
     if (eventsToShow.length === 0) {
         eventsList.innerHTML = `
@@ -525,6 +665,8 @@ function setupResetFilters() {
             quartier: [],
             venue: []
         };
+        userLocation = null;
+        document.getElementById('proximityStatus').textContent = '';
 
         // Uncheck all checkboxes
         document.querySelectorAll('input[type="checkbox"]').forEach(input => {
@@ -555,22 +697,66 @@ function setupLoadMore() {
 
 function setupViewControls() {
     const viewBtns = document.querySelectorAll('.view-btn');
-    const eventsList = document.getElementById('eventsList');
 
     viewBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+            const view = btn.dataset.view;
+
             viewBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const view = btn.dataset.view;
-            if (view === 'grid') {
-                eventsList.style.display = 'grid';
-                eventsList.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
-            } else {
-                eventsList.style.display = 'flex';
-                eventsList.style.flexDirection = 'column';
+            if (view === 'map') {
+                initMap();
+                setTimeout(() => map.invalidateSize(), 100);
             }
+
+            renderEvents();
         });
+    });
+}
+
+function setupProximitySearch() {
+    const nearMeBtn = document.getElementById('nearMeBtn');
+    const status = document.getElementById('proximityStatus');
+
+    nearMeBtn.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+            status.textContent = "La géolocalisation n'est pas supportée par votre navigateur.";
+            return;
+        }
+
+        status.textContent = "Localisation en cours...";
+        nearMeBtn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                status.textContent = "Position trouvée ! Événements triés par proximité.";
+                nearMeBtn.disabled = false;
+
+                // Switch to a date that might have more events for better demo
+                currentFilters.date = 'all'; // Special case for demo
+
+                renderEvents();
+
+                // If on map, mark user position
+                if (map) {
+                    L.marker([userLocation.lat, userLocation.lng], {
+                        icon: L.divIcon({
+                            className: 'user-marker',
+                            html: '<div style="background-color: #007bff; width: 15px; height: 15px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>'
+                        })
+                    }).addTo(map).bindPopup("Vous êtes ici").openPopup();
+                }
+            },
+            () => {
+                status.textContent = "Impossible de récupérer votre position.";
+                nearMeBtn.disabled = false;
+            }
+        );
     });
 }
 
@@ -597,6 +783,7 @@ function setupSearchFilters() {
 
 function setupNewsletterForm() {
     const form = document.querySelector('.newsletter-form');
+    if (!form) return;
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const email = form.querySelector('.newsletter-input').value;
@@ -618,6 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupResetFilters();
     setupLoadMore();
     setupViewControls();
+    setupProximitySearch();
     setupSearchFilters();
     setupNewsletterForm();
 
