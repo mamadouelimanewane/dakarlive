@@ -1311,3 +1311,80 @@ textarea {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
 }
+
+/* ===================================
+   MOBILE QUICK FILTERS (HALIBUTS CLONE)
+   =================================== */
+.mobile-quick-filters {
+    display: none;
+    background: var(--bg-secondary);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.quick-filters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.quick-filter-box {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all var(--transition-base);
+}
+
+.quick-filter-box:hover,
+.quick-filter-box:active {
+    border-color: var(--primary-color);
+    background: var(--bg-card);
+}
+
+.box-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.box-icon {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .mobile-quick-filters {
+        display: block;
+    }
+
+    .content-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filters-sidebar {
+        order: 2;
+        /* Filters below events on tablets/mobile */
+        padding: var(--spacing-md);
+    }
+
+    .events-container {
+        order: 1;
+        /* Events on top */
+    }
+
+    .hero {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

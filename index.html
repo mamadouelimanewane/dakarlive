@@ -63,6 +63,30 @@
         </div>
     </section>
 
+    <!-- Mobile Quick Filters (Halibuts Style) -->
+    <div class="mobile-quick-filters">
+        <div class="container">
+            <div class="quick-filters-grid">
+                <a href="#genre-anchor" class="quick-filter-box">
+                    <span class="box-label">Genre</span>
+                    <span class="box-icon">🎵</span>
+                </a>
+                <a href="#date-anchor" class="quick-filter-box">
+                    <span class="box-label">Date</span>
+                    <span class="box-icon">📅</span>
+                </a>
+                <a href="#quartier-anchor" class="quick-filter-box">
+                    <span class="box-label">Quartier</span>
+                    <span class="box-icon">📍</span>
+                </a>
+                <a href="#lieu-anchor" class="quick-filter-box">
+                    <span class="box-label">Lieux</span>
+                    <span class="box-icon">🏢</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="main">
         <div class="container">
@@ -74,8 +98,7 @@
                         <button class="btn-reset" id="resetFilters">Réinitialiser</button>
                     </div>
 
-                    <!-- Genre Filter -->
-                    <div class="filter-section">
+                    <div class="filter-section" id="genre-anchor">
                         <button class="filter-toggle active" data-filter="genre">
                             <span>Genre Musical</span>
                             <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -133,7 +156,7 @@
                     </div>
 
                     <!-- Date Filter -->
-                    <div class="filter-section">
+                    <div class="filter-section" id="date-anchor">
                         <button class="filter-toggle active" data-filter="date">
                             <span>Date</span>
                             <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -171,7 +194,7 @@
                     </div>
 
                     <!-- Quartier Filter -->
-                    <div class="filter-section">
+                    <div class="filter-section" id="quartier-anchor">
                         <button class="filter-toggle active" data-filter="quartier">
                             <span>Quartier</span>
                             <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -229,7 +252,7 @@
                     </div>
 
                     <!-- Venue Type Filter -->
-                    <div class="filter-section">
+                    <div class="filter-section" id="lieu-anchor">
                         <button class="filter-toggle active" data-filter="venue">
                             <span>Type de Lieu</span>
                             <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
