@@ -47,8 +47,15 @@ const venues = [
     { name: "Galerie Pop", type: "galerie" }
 ];
 
+function getYYYYMMDD(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+}
+
 const todayObj = new Date();
-const todayStr = todayObj.toISOString().split('T')[0];
+const todayStr = getYYYYMMDD(todayObj);
 
 for (let i = 21; i <= 150; i++) {
     const genre = genres[Math.floor(Math.random() * genres.length)];
@@ -56,13 +63,13 @@ for (let i = 21; i <= 150; i++) {
     const venue = venues[Math.floor(Math.random() * venues.length)];
 
     // Slight randomization of coordinates around neighborhood center
-    const lat = quartier.lat + (Math.random() - 0.5) * 0.035;
-    const lng = quartier.lng + (Math.random() - 0.5) * 0.035;
+    const lat = quartier.lat + (Math.random() - 0.5) * 0.04;
+    const lng = quartier.lng + (Math.random() - 0.5) * 0.04;
 
     // Random date within next 30 days
     const eventDateObj = new Date();
     eventDateObj.setDate(todayObj.getDate() + Math.floor(Math.random() * 30));
-    const dateStr = eventDateObj.toISOString().split('T')[0];
+    const dateStr = getYYYYMMDD(eventDateObj);
 
     eventsData.push({
         id: i,
@@ -144,7 +151,7 @@ function updateFilteredEvents() {
         // Filter by date
         const eventDateStr = event.date; // "YYYY-MM-DD"
         const todayObj = new Date();
-        const todayStr = todayObj.toISOString().split('T')[0];
+        const todayStr = getYYYYMMDD(todayObj);
 
         switch (currentFilters.date) {
             case 'today':
@@ -152,7 +159,7 @@ function updateFilteredEvents() {
             case 'tomorrow':
                 const tomorrowObj = new Date();
                 tomorrowObj.setDate(todayObj.getDate() + 1);
-                const tomorrowStr = tomorrowObj.toISOString().split('T')[0];
+                const tomorrowStr = getYYYYMMDD(tomorrowObj);
                 return eventDateStr === tomorrowStr;
             case 'weekend':
                 const dateObj = new Date(eventDateStr);
@@ -161,12 +168,12 @@ function updateFilteredEvents() {
             case 'week':
                 const weekLimitObj = new Date();
                 weekLimitObj.setDate(todayObj.getDate() + 7);
-                const weekLimitStr = weekLimitObj.toISOString().split('T')[0];
+                const weekLimitStr = getYYYYMMDD(weekLimitObj);
                 return eventDateStr >= todayStr && eventDateStr <= weekLimitStr;
             case 'month':
                 const monthLimitObj = new Date();
                 monthLimitObj.setDate(todayObj.getDate() + 30);
-                const monthLimitStr = monthLimitObj.toISOString().split('T')[0];
+                const monthLimitStr = getYYYYMMDD(monthLimitObj);
                 return eventDateStr >= todayStr && eventDateStr <= monthLimitStr;
             default:
                 if (currentFilters.date === 'all') return true;
