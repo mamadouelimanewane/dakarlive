@@ -2,307 +2,81 @@
 // DATA - Sample Events for Dakar with Coordinates
 // ===================================
 const eventsData = [
-    {
-        id: 1,
-        title: "Youssou N'Dour en Concert",
-        genre: "mbalax",
-        date: "2026-01-29",
-        time: "21:00",
-        venue: "Grand Théâtre National",
-        venueType: "theatre",
-        quartier: "plateau",
-        address: "Boulevard de la République, Plateau",
-        price: "15,000 FCFA",
-        description: "Concert exceptionnel du roi du Mbalax",
-        lat: 14.6756,
-        lng: -17.4339
-    },
-    {
-        id: 2,
-        title: "Soirée Afrobeat Live",
-        genre: "afrobeat",
-        date: "2026-01-29",
-        time: "22:00",
-        venue: "Just 4 U",
-        venueType: "club",
-        quartier: "almadies",
-        address: "Route des Almadies",
-        price: "5,000 FCFA",
-        description: "Les meilleurs DJ afrobeat de Dakar",
-        lat: 14.7486,
-        lng: -17.5147
-    },
-    {
-        id: 3,
-        title: "Jazz Night au Phare",
-        genre: "jazz",
-        date: "2026-01-29",
-        time: "20:00",
-        venue: "Le Phare des Mamelles",
-        venueType: "bar",
-        quartier: "ouakam",
-        address: "Les Mamelles, Ouakam",
-        price: "8,000 FCFA",
-        description: "Soirée jazz avec vue panoramique sur Dakar",
-        lat: 14.7219,
-        lng: -17.5125
-    },
-    {
-        id: 4,
-        title: "Jam Session Hip-Hop",
-        genre: "hip-hop",
-        date: "2026-01-29",
-        time: "19:00",
-        venue: "Warehouse Dakar",
-        venueType: "club",
-        quartier: "medina",
-        address: "Médina, près du marché Kermel",
-        price: "3,000 FCFA",
-        description: "Open mic et battles de rap",
-        lat: 14.6795,
-        lng: -17.4423
-    },
-    {
-        id: 5,
-        title: "Festival Reggae Beach",
-        genre: "reggae",
-        date: "2026-01-30",
-        time: "16:00",
-        venue: "Plage de Ngor",
-        venueType: "plage",
-        quartier: "ngor",
-        address: "Île de Ngor",
-        price: "Gratuit",
-        description: "Festival reggae en plein air sur la plage",
-        lat: 14.7554,
-        lng: -17.5148
-    },
-    {
-        id: 6,
-        title: "Spectacle de Sabar Traditionnel",
-        genre: "traditionnel",
-        date: "2026-01-30",
-        time: "18:00",
-        venue: "Village des Arts",
-        venueType: "galerie",
-        quartier: "yoff",
-        address: "Route de l'Aéroport, Yoff",
-        price: "2,000 FCFA",
-        description: "Démonstration de percussion traditionnelle sénégalaise",
-        lat: 14.7441,
-        lng: -17.4725
-    },
-    {
-        id: 7,
-        title: "Electronic Sunset Session",
-        genre: "electro",
-        date: "2026-01-31",
-        time: "18:30",
-        venue: "Chez Vieira",
-        venueType: "plage",
-        quartier: "ngor",
-        address: "Plage de Ngor",
-        price: "7,000 FCFA",
-        description: "DJ set électro au coucher du soleil",
-        lat: 14.7502,
-        lng: -17.5122
-    },
-    {
-        id: 8,
-        title: "Soirée R&B Soul",
-        genre: "rnb",
-        date: "2026-01-31",
-        time: "21:30",
-        venue: "Le Djoloff",
-        venueType: "restaurant",
-        quartier: "sacre-coeur",
-        address: "Sacré-Cœur 3",
-        price: "10,000 FCFA",
-        description: "Dîner-concert avec les meilleurs artistes R&B locaux",
-        lat: 14.7118,
-        lng: -17.4667
-    },
-    {
-        id: 9,
-        title: "Waly Seck Live",
-        genre: "mbalax",
-        date: "2026-02-01",
-        time: "22:00",
-        venue: "King Fahd Palace",
-        venueType: "club",
-        quartier: "almadies",
-        address: "Pointe des Almadies",
-        price: "12,000 FCFA",
-        description: "Concert du prince du Mbalax nouvelle génération",
-        lat: 14.7456,
-        lng: -17.5258
-    },
-    {
-        id: 10,
-        title: "Afro Jazz Fusion",
-        genre: "jazz",
-        date: "2026-02-01",
-        time: "20:00",
-        venue: "Institut Français",
-        venueType: "theatre",
-        quartier: "plateau",
-        address: "89 Rue Joseph Gomis, Plateau",
-        price: "6,000 FCFA",
-        description: "Fusion de jazz moderne et rythmes africains",
-        lat: 14.6675,
-        lng: -17.4361
-    },
-    {
-        id: 11,
-        title: "Beach Party Afrobeat",
-        genre: "afrobeat",
-        date: "2026-02-02",
-        time: "17:00",
-        venue: "La Calebasse",
-        venueType: "plage",
-        quartier: "yoff",
-        address: "Plage de Yoff",
-        price: "5,000 FCFA",
-        description: "Fête sur la plage avec DJ internationaux",
-        lat: 14.7562,
-        lng: -17.4589
-    },
-    {
-        id: 12,
-        title: "Rap Game Dakar",
-        genre: "hip-hop",
-        date: "2026-02-02",
-        time: "20:00",
-        venue: "Salle Sorano",
-        venueType: "theatre",
-        quartier: "plateau",
-        address: "Avenue Blaise Diagne, Plateau",
-        price: "4,000 FCFA",
-        description: "Showcase des meilleurs rappeurs de Dakar",
-        lat: 14.6698,
-        lng: -17.4392
-    },
-    {
-        id: 13,
-        title: "Nuit Mbalax avec Thione Seck",
-        genre: "mbalax",
-        date: "2026-02-03",
-        time: "21:00",
-        venue: "Grand Théâtre National",
-        venueType: "theatre",
-        quartier: "plateau",
-        address: "Boulevard de la République, Plateau",
-        price: "12,000 FCFA",
-        description: "Hommage au Mbalax traditionnel",
-        lat: 14.6756,
-        lng: -17.4339
-    },
-    {
-        id: 14,
-        title: "Soirée Jazz Manouche",
-        genre: "jazz",
-        date: "2026-02-04",
-        time: "20:30",
-        venue: "Le Phare des Mamelles",
-        venueType: "bar",
-        quartier: "ouakam",
-        address: "Les Mamelles, Ouakam",
-        price: "7,000 FCFA",
-        description: "Jazz manouche avec vue sur l'océan",
-        lat: 14.7219,
-        lng: -17.5125
-    },
-    {
-        id: 15,
-        title: "Festival Hip-Hop Underground",
-        genre: "hip-hop",
-        date: "2026-02-05",
-        time: "18:00",
-        venue: "Warehouse Dakar",
-        venueType: "club",
-        quartier: "medina",
-        address: "Médina, près du marché Kermel",
-        price: "4,000 FCFA",
-        description: "Découvrez les nouveaux talents du rap sénégalais",
-        lat: 14.6795,
-        lng: -17.4423
-    },
-    {
-        id: 16,
-        title: "Reggae Roots Night",
-        genre: "reggae",
-        date: "2026-02-06",
-        time: "21:00",
-        venue: "Just 4 U",
-        venueType: "club",
-        quartier: "almadies",
-        address: "Route des Almadies",
-        price: "6,000 FCFA",
-        description: "Soirée reggae roots avec sound system",
-        lat: 14.7486,
-        lng: -17.5147
-    },
-    {
-        id: 17,
-        title: "Kora & Balafon Traditionnel",
-        genre: "traditionnel",
-        date: "2026-02-07",
-        time: "19:00",
-        venue: "Village des Arts",
-        venueType: "galerie",
-        quartier: "yoff",
-        address: "Route de l'Aéroport, Yoff",
-        price: "3,000 FCFA",
-        description: "Concert de musique traditionnelle mandingue",
-        lat: 14.7441,
-        lng: -17.4725
-    },
-    {
-        id: 18,
-        title: "Electro Beach Festival",
-        genre: "electro",
-        date: "2026-02-08",
-        time: "17:00",
-        venue: "Plage de Ngor",
-        venueType: "plage",
-        quartier: "ngor",
-        address: "Île de Ngor",
-        price: "8,000 FCFA",
-        description: "Festival de musique électronique sur la plage",
-        lat: 14.7554,
-        lng: -17.5148
-    },
-    {
-        id: 19,
-        title: "R&B Lounge Night",
-        genre: "rnb",
-        date: "2026-02-09",
-        time: "22:00",
-        venue: "Le Djoloff",
-        venueType: "restaurant",
-        quartier: "sacre-coeur",
-        address: "Sacré-Cœur 3",
-        price: "9,000 FCFA",
-        description: "Soirée R&B dans une ambiance lounge",
-        lat: 14.7118,
-        lng: -17.4667
-    },
-    {
-        id: 20,
-        title: "Afrobeat Explosion",
-        genre: "afrobeat",
-        date: "2026-02-10",
-        time: "23:00",
-        venue: "King Fahd Palace",
-        venueType: "club",
-        quartier: "almadies",
-        address: "Pointe des Almadies",
-        price: "10,000 FCFA",
-        description: "Les meilleurs DJ afrobeat d'Afrique de l'Ouest",
-        lat: 14.7456,
-        lng: -17.5258
-    }
+    // Original 20 events...
+    { id: 1, title: "Youssou N'Dour en Concert", genre: "mbalax", date: "2026-01-29", time: "21:00", venue: "Grand Théâtre National", venueType: "theatre", quartier: "plateau", address: "Boulevard de la République, Plateau", price: "15,000 FCFA", description: "Concert exceptionnel du roi du Mbalax", lat: 14.6756, lng: -17.4339 },
+    { id: 2, title: "Soirée Afrobeat Live", genre: "afrobeat", date: "2026-01-29", time: "22:00", venue: "Just 4 U", venueType: "club", quartier: "almadies", address: "Route des Almadies", price: "5,000 FCFA", description: "Les meilleurs DJ afrobeat de Dakar", lat: 14.7486, lng: -17.5147 },
+    { id: 3, title: "Jazz Night au Phare", genre: "jazz", date: "2026-01-29", time: "20:00", venue: "Le Phare des Mamelles", venueType: "bar", quartier: "ouakam", address: "Les Mamelles, Ouakam", price: "8,000 FCFA", description: "Soirée jazz avec vue panoramique sur Dakar", lat: 14.7219, lng: -17.5125 },
+    { id: 4, title: "Jam Session Hip-Hop", genre: "hip-hop", date: "2026-01-29", time: "19:00", venue: "Warehouse Dakar", venueType: "club", quartier: "medina", address: "Médina, près du marché Kermel", price: "3,000 FCFA", description: "Open mic et battles de rap", lat: 14.6795, lng: -17.4423 },
+    { id: 5, title: "Festival Reggae Beach", genre: "reggae", date: "2026-01-30", time: "16:00", venue: "Plage de Ngor", venueType: "plage", quartier: "ngor", address: "Île de Ngor", price: "Gratuit", description: "Festival reggae en plein air sur la plage", lat: 14.7554, lng: -17.5148 },
+    { id: 6, title: "Spectacle de Sabar Traditionnel", genre: "traditionnel", date: "2026-01-30", time: "18:00", venue: "Village des Arts", venueType: "galerie", quartier: "yoff", address: "Route de l'Aéroport, Yoff", price: "2,000 FCFA", description: "Démonstration de percussion traditionnelle sénégalaise", lat: 14.7441, lng: -17.4725 },
+    { id: 7, title: "Electronic Sunset Session", genre: "electro", date: "2026-01-31", time: "18:30", venue: "Chez Vieira", venueType: "plage", quartier: "ngor", address: "Plage de Ngor", price: "7,000 FCFA", description: "DJ set électro au coucher du soleil", lat: 14.7502, lng: -17.5122 },
+    { id: 8, title: "Soirée R&B Soul", genre: "rnb", date: "2026-01-31", time: "21:30", venue: "Le Djoloff", venueType: "restaurant", quartier: "sacre-coeur", address: "Sacré-Cœur 3", price: "10,000 FCFA", description: "Dîner-concert avec les meilleurs artistes R&B locaux", lat: 14.7118, lng: -17.4667 },
+    { id: 9, title: "Waly Seck Live", genre: "mbalax", date: "2026-02-01", time: "22:00", venue: "King Fahd Palace", venueType: "club", quartier: "almadies", address: "Pointe des Almadies", price: "12,000 FCFA", description: "Concert du prince du Mbalax nouvelle génération", lat: 14.7456, lng: -17.5258 },
+    { id: 10, title: "Afro Jazz Fusion", genre: "jazz", date: "2026-02-01", time: "20:00", venue: "Institut Français", venueType: "theatre", quartier: "plateau", address: "89 Rue Joseph Gomis, Plateau", price: "6,000 FCFA", description: "Fusion de jazz moderne et rythmes africains", lat: 14.6675, lng: -17.4361 },
+    { id: 11, title: "Beach Party Afrobeat", genre: "afrobeat", date: "2026-02-02", time: "17:00", venue: "La Calebasse", venueType: "plage", quartier: "yoff", address: "Plage de Yoff", price: "5,000 FCFA", description: "Fête sur la plage avec DJ internationaux", lat: 14.7562, lng: -17.4589 },
+    { id: 12, title: "Rap Game Dakar", genre: "hip-hop", date: "2026-02-02", time: "20:00", venue: "Salle Sorano", venueType: "theatre", quartier: "plateau", address: "Avenue Blaise Diagne, Plateau", price: "4,000 FCFA", description: "Showcase des meilleurs rappeurs de Dakar", lat: 14.6698, lng: -17.4392 },
+    { id: 13, title: "Nuit Mbalax avec Thione Seck", genre: "mbalax", date: "2026-02-03", time: "21:00", venue: "Grand Théâtre National", venueType: "theatre", quartier: "plateau", address: "Boulevard de la République, Plateau", price: "12,000 FCFA", description: "Hommage au Mbalax traditionnel", lat: 14.6756, lng: -17.4339 },
+    { id: 14, title: "Soirée Jazz Manouche", genre: "jazz", date: "2026-02-04", time: "20:30", venue: "Le Phare des Mamelles", venueType: "bar", quartier: "ouakam", address: "Les Mamelles, Ouakam", price: "7,000 FCFA", description: "Jazz manouche avec vue sur l'océan", lat: 14.7219, lng: -17.5125 },
+    { id: 15, title: "Festival Hip-Hop Underground", genre: "hip-hop", date: "2026-02-05", time: "18:00", venue: "Warehouse Dakar", venueType: "club", quartier: "medina", address: "Médina, près du marché Kermel", price: "4,000 FCFA", description: "Découvrez les nouveaux talents du rap sénégalais", lat: 14.6795, lng: -17.4423 },
+    { id: 16, title: "Reggae Roots Night", genre: "reggae", date: "2026-02-06", time: "21:00", venue: "Just 4 U", venueType: "club", quartier: "almadies", address: "Route des Almadies", price: "6,000 FCFA", description: "Soirée reggae roots avec sound system", lat: 14.7486, lng: -17.5147 },
+    { id: 17, title: "Kora & Balafon Traditionnel", genre: "traditionnel", date: "2026-02-07", time: "19:00", venue: "Village des Arts", venueType: "galerie", quartier: "yoff", address: "Route de l'Aéroport, Yoff", price: "3,000 FCFA", description: "Concert de musique traditionnelle mandingue", lat: 14.7441, lng: -17.4725 },
+    { id: 18, title: "Electro Beach Festival", genre: "electro", date: "2026-02-08", time: "17:00", venue: "Plage de Ngor", venueType: "plage", quartier: "ngor", address: "Île de Ngor", price: "8,000 FCFA", description: "Festival de musique électronique sur la plage", lat: 14.7554, lng: -17.5148 },
+    { id: 19, title: "R&B Lounge Night", genre: "rnb", date: "2026-02-09", time: "22:00", venue: "Le Djoloff", venueType: "restaurant", quartier: "sacre-coeur", address: "Sacré-Cœur 3", price: "9,000 FCFA", description: "Soirée R&B dans une ambiance lounge", lat: 14.7118, lng: -17.4667 },
+    { id: 20, title: "Afrobeat Explosion", genre: "afrobeat", date: "2026-02-10", time: "23:00", venue: "King Fahd Palace", venueType: "club", quartier: "almadies", address: "Pointe des Almadies", price: "10,000 FCFA", description: "Les meilleurs DJ afrobeat d'Afrique de l'Ouest", lat: 14.7456, lng: -17.5258 }
 ];
+
+// Generator for more data
+const genres = ["mbalax", "afrobeat", "jazz", "hip-hop", "reggae", "traditionnel", "electro", "rnb"];
+const quartiersData = [
+    { name: "plateau", lat: 14.67, lng: -17.44 },
+    { name: "almadies", lat: 14.75, lng: -17.52 },
+    { name: "ngor", lat: 14.75, lng: -17.51 },
+    { name: "yoff", lat: 14.76, lng: -17.47 },
+    { name: "mermoz", lat: 14.71, lng: -17.48 },
+    { name: "ouakam", lat: 14.72, lng: -17.51 },
+    { name: "medina", lat: 14.68, lng: -17.45 },
+    { name: "sacre-coeur", lat: 14.71, lng: -17.47 }
+];
+
+const venues = [
+    { name: "Bar de l'Amitié", type: "bar" },
+    { name: "Club Dakar", type: "club" },
+    { name: "Restaurant des Arts", type: "restaurant" },
+    { name: "Plage Virage", type: "plage" },
+    { name: "Théâtre de Verdure", type: "theatre" },
+    { name: "Galerie Pop", type: "galerie" }
+];
+
+for (let i = 21; i <= 120; i++) {
+    const genre = genres[Math.floor(Math.random() * genres.length)];
+    const quartier = quartiersData[Math.floor(Math.random() * quartiersData.length)];
+    const venue = venues[Math.floor(Math.random() * venues.length)];
+
+    // Slight randomization of coordinates around neighborhood center
+    const lat = quartier.lat + (Math.random() - 0.5) * 0.02;
+    const lng = quartier.lng + (Math.random() - 0.5) * 0.02;
+
+    // Random date within first 2 weeks of February
+    const day = Math.floor(Math.random() * 14) + 1;
+    const date = `2026-02-${day.toString().padStart(2, '0')}`;
+
+    eventsData.push({
+        id: i,
+        title: `${genre.charAt(0).toUpperCase() + genre.slice(1)} Event #${i}`,
+        genre: genre,
+        date: date,
+        time: `${Math.floor(Math.random() * 6) + 18}:00`,
+        venue: `${venue.name} ${quartier.name.charAt(0).toUpperCase() + quartier.name.slice(1)}`,
+        venueType: venue.type,
+        quartier: quartier.name,
+        address: `Rue ${i}, ${quartier.name}`,
+        price: `${(Math.floor(Math.random() * 10) + 2) * 1000} FCFA`,
+        description: `Un événement exceptionnel de ${genre} à ne pas manquer !`,
+        lat: lat,
+        lng: lng
+    });
+}
+
 
 // ===================================
 // STATE MANAGEMENT
@@ -440,6 +214,17 @@ function initMap() {
     }
 }
 
+const genreColors = {
+    'mbalax': '#FF8C32',      // Orange
+    'afrobeat': '#E91E63',    // Pink/Red
+    'jazz': '#9C27B0',        // Purple
+    'hip-hop': '#2196F3',     // Blue
+    'reggae': '#4CAF50',      // Green
+    'traditionnel': '#795548',// Brown
+    'electro': '#FFD700',     // Gold/Yellow
+    'rnb': '#00BCD4'          // Cyan
+};
+
 function updateMapMarkers() {
     if (!map) return;
 
@@ -448,23 +233,30 @@ function updateMapMarkers() {
     markers = [];
 
     filteredEvents.forEach(event => {
-        const marker = L.marker([event.lat, event.lng])
+        const color = genreColors[event.genre] || '#ffffff';
+
+        // Use circle markers for better quality and color differentiation
+        const marker = L.circleMarker([event.lat, event.lng], {
+            radius: 10,
+            fillColor: color,
+            color: '#fff',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.9
+        })
             .addTo(map)
             .bindPopup(`
-                <div class="map-popup-card">
-                    <div class="map-popup-title">${event.title}</div>
-                    <div class="map-popup-venue">${event.venue}</div>
-                    <div>${event.time} • ${event.price}</div>
-                    <a href="javascript:void(0)" class="map-popup-btn" onclick="viewEventDetails(${event.id})">Voir détails</a>
-                </div>
-            `);
+            <div class="map-popup-card">
+                <div class="map-popup-header" style="background: ${color}; height: 8px; border-radius: 4px 4px 0 0; margin: -12px -12px 8px -12px;"></div>
+                <div class="map-popup-title">${event.title}</div>
+                <div class="map-popup-genre" style="color: ${color}; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">${getGenreLabel(event.genre)}</div>
+                <div class="map-popup-venue">${event.venue}</div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary);">${event.time} • ${event.price}</div>
+                <a href="javascript:void(0)" class="map-popup-btn" onclick="viewEventDetails(${event.id})">Voir détails</a>
+            </div>
+        `);
         markers.push(marker);
     });
-
-    if (markers.length > 0) {
-        const group = new L.featureGroup(markers);
-        map.fitBounds(group.getBounds().pad(0.1));
-    }
 }
 
 // ===================================
@@ -556,15 +348,22 @@ function renderEvents() {
         eventsList.style.display = 'none';
         mapContainer.style.display = 'block';
         initMap();
+
+        // Ensure map is correctly sized and centered
         setTimeout(() => {
             if (map) {
                 map.invalidateSize();
                 updateMapMarkers();
-                if (markers.length === 0) {
+
+                if (markers.length > 0) {
+                    const group = new L.featureGroup(markers);
+                    map.fitBounds(group.getBounds().pad(0.1));
+                } else {
                     map.setView([14.6928, -17.4467], 13);
                 }
             }
         }, 200);
+
         document.getElementById('loadMore').style.display = 'none';
         return;
     } else {
