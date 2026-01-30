@@ -7,7 +7,7 @@
     <title>DakarLive - Tous les événements culturels de Dakar</title>
     <meta name="description"
         content="Liste complète et à jour de tous les événements culturels, concerts, spectacles et festivals à Dakar, Sénégal">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.2">
     <!-- Leaflet Map CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -373,15 +373,49 @@
                             </svg>
                         </button>
                         <div class="map-legend">
-                            <div class="legend-item"><span class="dot" style="background: #FF8C32"></span> Mbalax</div>
-                            <div class="legend-item"><span class="dot" style="background: #E91E63"></span> Afrobeat
+                            <div class="legend-header">Filtrer par Genre</div>
+                            <div class="legend-grid">
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="mbalax">
+                                    <span class="dot" style="background: #FF8C32"></span>
+                                    <span class="legend-label">Mbalax</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="afrobeat">
+                                    <span class="dot" style="background: #E91E63"></span>
+                                    <span class="legend-label">Afrobeat</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="jazz">
+                                    <span class="dot" style="background: #9C27B0"></span>
+                                    <span class="legend-label">Jazz</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="hip-hop">
+                                    <span class="dot" style="background: #2196F3"></span>
+                                    <span class="legend-label">Hip-Hop</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="reggae">
+                                    <span class="dot" style="background: #4CAF50"></span>
+                                    <span class="legend-label">Reggae</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="traditionnel">
+                                    <span class="dot" style="background: #795548"></span>
+                                    <span class="legend-label">Trad.</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="electro">
+                                    <span class="dot" style="background: #FFD700"></span>
+                                    <span class="legend-label">Electro</span>
+                                </label>
+                                <label class="legend-item">
+                                    <input type="checkbox" name="genre" value="rnb">
+                                    <span class="dot" style="background: #00BCD4"></span>
+                                    <span class="legend-label">R&B</span>
+                                </label>
                             </div>
-                            <div class="legend-item"><span class="dot" style="background: #9C27B0"></span> Jazz</div>
-                            <div class="legend-item"><span class="dot" style="background: #2196F3"></span> Hip-Hop</div>
-                            <div class="legend-item"><span class="dot" style="background: #4CAF50"></span> Reggae</div>
-                            <div class="legend-item"><span class="dot" style="background: #795548"></span> Trad.</div>
-                            <div class="legend-item"><span class="dot" style="background: #FFD700"></span> Electro</div>
-                            <div class="legend-item"><span class="dot" style="background: #00BCD4"></span> R&B</div>
                         </div>
                     </div>
 
@@ -481,7 +515,7 @@
     <!-- Leaflet Map JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="app.js"></script>
+    <script src="app.js?v=1.2"></script>
 </body>
 
 </html>

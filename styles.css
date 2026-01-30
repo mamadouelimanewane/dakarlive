@@ -587,39 +587,54 @@ textarea {
 
 .map-legend {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(var(--bg-card-rgb), 0.85);
-    backdrop-filter: blur(8px);
-    padding: 10px;
-    border-radius: var(--radius-md);
+    bottom: 25px;
+    right: 25px;
+    background: rgba(var(--bg-card-rgb), 0.92);
+    backdrop-filter: blur(16px);
+    padding: 14px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--border-color);
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--shadow-xl);
+    width: 280px;
+}
+
+.legend-header {
+    font-weight: 800;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--divider-color);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+.legend-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    box-shadow: var(--shadow-md);
-    font-size: 0.75rem;
-    color: var(--text-primary);
+    gap: 6px;
 }
 
 .btn-map-maximize {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(var(--bg-card-rgb), 0.85);
-    backdrop-filter: blur(8px);
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    z-index: 1001;
+    background: var(--primary-color);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+    z-index: 1010;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all var(--transition-base);
 }
 
@@ -647,13 +662,23 @@ textarea {
 
 @media (max-width: 768px) {
     .map-legend {
-        bottom: 10px;
-        right: 10px;
-        padding: 8px;
-        grid-template-columns: 1fr;
+        bottom: 80px;
+        /* Leave space for FAB if needed */
+        right: 15px;
+        left: 15px;
+        padding: 10px;
+        grid-template-columns: repeat(3, 1fr);
         font-size: 0.65rem;
-        max-height: 150px;
+        max-height: 180px;
         overflow-y: auto;
+        min-width: auto;
+    }
+
+    .btn-map-maximize {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -661,7 +686,40 @@ textarea {
     display: flex;
     align-items: center;
     gap: 6px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.legend-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.legend-item input[type="checkbox"] {
+    margin: 0;
+    width: 14px;
+    height: 14px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.legend-label {
+    font-size: 0.7rem;
     font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.legend-item.active {
+    background: rgba(var(--primary-color-rgb, 255, 140, 50), 0.1);
+    border-color: var(--primary-color);
 }
 
 .legend-item .dot {

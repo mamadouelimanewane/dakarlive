@@ -448,10 +448,20 @@ function setupFilterInputs() {
     const genreInputs = document.querySelectorAll('input[name="genre"]');
     genreInputs.forEach(input => {
         input.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                currentFilters.genre.push(e.target.value);
+            const val = e.target.value;
+            const isChecked = e.target.checked;
+
+            // Sync all checkboxes with same value (for map legend & sidebar harmony)
+            document.querySelectorAll(`input[name="genre"][value="${val}"]`).forEach(cb => {
+                cb.checked = isChecked;
+            });
+
+            if (isChecked) {
+                if (!currentFilters.genre.includes(val)) {
+                    currentFilters.genre.push(val);
+                }
             } else {
-                currentFilters.genre = currentFilters.genre.filter(g => g !== e.target.value);
+                currentFilters.genre = currentFilters.genre.filter(g => g !== val);
             }
             displayedEvents = eventsPerLoad;
             renderEvents();
