@@ -809,32 +809,41 @@ function setupSearchFilters() {
 
 function setupMobileMapToggle() {
     const mobileMapToggle = document.getElementById('mobileMapToggle');
-    const mapViewBtn = document.getElementById('mapViewBtn');
 
-    if (mobileMapToggle && mapViewBtn) {
-        mobileMapToggle.addEventListener('click', () => {
-            // Trigger the desktop map button's logic
-            mapViewBtn.click();
+    if (mobileMapToggle) {
+        mobileMapToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Mobile map toggle clicked');
+            currentView = 'map';
+            renderEvents();
 
-            // Scroll to the map
-            document.getElementById('mapContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Scroll to the map with a slight delay to ensure rendering
+            setTimeout(() => {
+                const mapContainer = document.getElementById('mapContainer');
+                if (mapContainer) {
+                    mapContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 100);
         });
     }
 }
 
 function setupExtraMapButtons() {
-    const heroMapBtn = document.getElementById('heroMapBtn');
     const mobileFabMap = document.getElementById('mobileFabMap');
-    const mapViewBtn = document.getElementById('mapViewBtn');
 
-    const openMap = () => {
-        if (mapViewBtn) {
-            mapViewBtn.click();
-            document.getElementById('mapContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+    const openMap = (e) => {
+        e.preventDefault();
+        currentView = 'map';
+        renderEvents();
+
+        setTimeout(() => {
+            const mapContainer = document.getElementById('mapContainer');
+            if (mapContainer) {
+                mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100);
     };
 
-    if (heroMapBtn) heroMapBtn.addEventListener('click', openMap);
     if (mobileFabMap) mobileFabMap.addEventListener('click', openMap);
 }
 
