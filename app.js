@@ -528,6 +528,12 @@ function setupResetFilters() {
         userLocation = null;
         document.getElementById('proximityStatus').textContent = '';
 
+        // Remove user marker on map
+        if (window.currentUserMarker && map) {
+            map.removeLayer(window.currentUserMarker);
+            window.currentUserMarker = null;
+        }
+
         // Uncheck all checkboxes
         document.querySelectorAll('input[type="checkbox"]').forEach(input => {
             input.checked = false;
@@ -703,6 +709,53 @@ function setupExtraMapButtons() {
                     }
                 }
             }, 300);
+        });
+    }
+
+    const mapNearMeBtn = document.getElementById('mapNearMe');
+    if (mapNearMeBtn) {
+        mapNearMeBtn.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                alert("La géolocalisation n'est pas supportée par votre navigateur.");
+                return;
+            }
+
+            mapNearMeBtn.classList.add('loading-pulse');
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    mapNearMeBtn.classList.remove('loading-pulse');
+
+                    // Update map
+                    if (map) {
+                        map.setView([userLocation.lat, userLocation.lng], 15);
+
+                        // Add or move user marker
+                        if (window.currentUserMarker) {
+                            map.removeLayer(window.currentUserMarker);
+                        }
+
+                        window.currentUserMarker = L.marker([userLocation.lat, userLocation.lng], {
+                            icon: L.divIcon({
+                                className: 'user-marker',
+                                html: '<div style="background-color: var(--primary-color); width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.4); animation: pulse 2s infinite;"></div>'
+                            })
+                        }).addTo(map).bindPopup("Vous êtes ici").openPopup();
+                    }
+
+                    // Refresh data
+                    renderEvents();
+                },
+                () => {
+                    alert("Impossible de récupérer votre position.");
+                    mapNearMeBtn.classList.remove('loading-pulse');
+                }
+            );
         });
     }
 }

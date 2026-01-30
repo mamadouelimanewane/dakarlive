@@ -619,9 +619,9 @@ textarea {
     gap: 6px;
 }
 
-.btn-map-maximize {
+.btn-map-maximize,
+.btn-map-near-me {
     position: absolute;
-    top: 20px;
     right: 20px;
     background: var(--primary-color);
     width: 44px;
@@ -638,10 +638,18 @@ textarea {
     transition: all var(--transition-base);
 }
 
-.btn-map-maximize:hover {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white;
+.btn-map-maximize {
+    top: 20px;
+}
+
+.btn-map-near-me {
+    top: 74px;
+}
+
+.btn-map-maximize:hover,
+.btn-map-near-me:hover {
+    background: var(--text-primary);
+    transform: scale(1.05);
 }
 
 /* Maximized State */
@@ -674,11 +682,19 @@ textarea {
         min-width: auto;
     }
 
-    .btn-map-maximize {
-        top: 15px;
+    .btn-map-maximize,
+    .btn-map-near-me {
         right: 15px;
         width: 40px;
         height: 40px;
+    }
+
+    .btn-map-maximize {
+        top: 15px;
+    }
+
+    .btn-map-near-me {
+        top: 65px;
     }
 }
 
@@ -1706,4 +1722,31 @@ button.quick-filter-box {
 
 .fab-map:active {
     transform: scale(0.9);
+}
+/* Animations */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 140, 50, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 140, 50, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 140, 50, 0);
+    }
+}
+
+.loading-pulse {
+    animation: active-pulse 1s infinite alternate;
+}
+
+@keyframes active-pulse {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.7;
+        transform: scale(0.9);
+    }
 }
