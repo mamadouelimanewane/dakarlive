@@ -1770,3 +1770,70 @@ button.quick-filter-box {
         transform: scale(0.9);
     }
 }
+/* Map Popup Styles */
+.map-popup-card {
+    min-width: 180px;
+    padding: 2px 0;
+}
+
+.map-popup-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.map-popup-venue {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.map-popup-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.map-popup-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s;
+    background: #f0f0f0;
+    color: #333;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.map-popup-btn:hover {
+    background: #e0e0e0;
+}
+
+.map-popup-btn.btn-nav {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.map-popup-btn.btn-nav:hover {
+    background: var(--secondary-dark);
+    transform: translateY(-1px);
+}
+
+/* Leaflet Routing Machine Overrides */
+.leaflet-routing-container {
+    display: none !important; /* Hide the instructions panel */
+}
+
+.leaflet-bar {
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}

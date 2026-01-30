@@ -105,7 +105,8 @@ let map = null;
 let markers = [];
 let userLocation = null;
 let filteredEvents = [];
-let currentView = 'list'; // Default view to list so user sees data immediately
+let currentView = 'list';
+let routingControl = null;
 
 // ===================================
 // UTILITY FUNCTIONS
@@ -268,11 +269,73 @@ function updateMapMarkers() {
                 <div class="map-popup-genre" style="color: ${color}; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">${getGenreLabel(event.genre)}</div>
                 <div class="map-popup-venue">${event.venue}</div>
                 <div style="font-size: 0.85rem; color: var(--text-secondary);">${event.time} • ${event.price}</div>
-                <a href="javascript:void(0)" class="map-popup-btn" onclick="viewEventDetails(${event.id})">Voir détails</a>
+                <div class="map-popup-actions">
+                    <a href="javascript:void(0)" class="map-popup-btn" onclick="viewEventDetails(${event.id})">Détails</a>
+                    <a href="javascript:void(0)" class="map-popup-btn btn-nav" onclick="navigateTo(${event.lat}, ${event.lng}, '${event.title.replace(/'/g, "\\'")}')">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Y aller
+                    </a>
+                </div>
             </div>
         `);
         markers.push(marker);
     });
+}
+
+function navigateTo(destLat, destLng, destName) {
+    if (!userLocation) {
+        alert("Veuillez d'abord vous localiser en cliquant sur le bouton vert 'Autour de moi'.");
+        // Scroll to map and trigger location
+        currentView = 'map';
+        renderEvents();
+        setTimeout(() => {
+            const mapNearMeBtn = document.getElementById('mapNearMe');
+            if (mapNearMeBtn) mapNearMeBtn.click();
+        }, 500);
+        return;
+    }
+
+    if (!map) return;
+
+    // Remove old route
+    if (routingControl) {
+        map.removeControl(routingControl);
+    }
+
+    // Create a path
+    routingControl = L.Routing.control({
+        waypoints: [
+            L.latLng(userLocation.lat, userLocation.lng),
+            L.latLng(destLat, destLng)
+        ],
+        lineOptions: {
+            styles: [{ color: '#007bff', opacity: 0.8, weight: 6 }]
+        },
+        createMarker: function () { return null; }, // Don't add default generic markers
+        addWaypoints: false,
+        draggableWaypoints: false,
+        router: L.Routing.osrmv1({
+            serviceUrl: 'https://router.project-osrm.org/route/v1'
+        }),
+        show: false // Hide the textual instruction panel
+    }).addTo(map);
+
+    // Zoom to show both points
+    const bounds = L.latLngBounds([
+        [userLocation.lat, userLocation.lng],
+        [destLat, destLng]
+    ]);
+    map.fitBounds(bounds.pad(0.2));
+
+    // Also offer to open in external maps app
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${destLat},${destLng}`;
+    const confirmed = confirm(`Calcul de l'itinéraire vers ${destName} en cours...\n\nSouhaitez-vous ouvrir Google Maps pour le guidage vocal ?`);
+    if (confirmed) {
+        window.open(googleMapsUrl, '_blank');
+    }
 }
 
 // ===================================
