@@ -603,6 +603,48 @@ textarea {
     color: var(--text-primary);
 }
 
+.btn-map-maximize {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(var(--bg-card-rgb), 0.85);
+    backdrop-filter: blur(8px);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.btn-map-maximize:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Maximized State */
+.map-container.maximized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border-radius: 0;
+    margin: 0;
+}
+
+.map-container.maximized #eventMap {
+    height: 100%;
+}
+
 @media (max-width: 768px) {
     .map-legend {
         bottom: 10px;
