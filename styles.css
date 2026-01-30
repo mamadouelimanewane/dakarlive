@@ -607,9 +607,11 @@ textarea {
     .map-legend {
         bottom: 10px;
         right: 10px;
-        left: 10px;
-        grid-template-columns: repeat(3, 1fr);
-        font-size: 0.7rem;
+        padding: 8px;
+        grid-template-columns: 1fr;
+        font-size: 0.65rem;
+        max-height: 150px;
+        overflow-y: auto;
     }
 }
 
@@ -1492,21 +1494,21 @@ textarea {
 
 .quick-filters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
 }
 
 .quick-filter-box {
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    padding: 6px 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    height: 90px;
+    gap: 2px;
+    height: 55px;
     transition: all var(--transition-base);
 }
 
@@ -1523,13 +1525,25 @@ button.quick-filter-box {
 }
 
 .box-label {
-    font-size: 0.9rem;
+    font-size: 0.65rem;
     font-weight: 700;
     color: var(--text-primary);
+    white-space: nowrap;
 }
 
 .box-icon {
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .quick-filters-grid {
+        gap: 4px;
+    }
+
+    .quick-filter-box {
+        padding: 4px 2px;
+        height: 50px;
+    }
 }
 
 @media (max-width: 1024px) {

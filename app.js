@@ -47,31 +47,35 @@ const venues = [
     { name: "Galerie Pop", type: "galerie" }
 ];
 
-for (let i = 21; i <= 120; i++) {
+const todayForGen = new Date();
+todayForGen.setHours(0, 0, 0, 0);
+
+for (let i = 21; i <= 150; i++) {
     const genre = genres[Math.floor(Math.random() * genres.length)];
     const quartier = quartiersData[Math.floor(Math.random() * quartiersData.length)];
     const venue = venues[Math.floor(Math.random() * venues.length)];
 
     // Slight randomization of coordinates around neighborhood center
-    const lat = quartier.lat + (Math.random() - 0.5) * 0.02;
-    const lng = quartier.lng + (Math.random() - 0.5) * 0.02;
+    const lat = quartier.lat + (Math.random() - 0.5) * 0.035;
+    const lng = quartier.lng + (Math.random() - 0.5) * 0.035;
 
-    // Random date within first 2 weeks of February
-    const day = Math.floor(Math.random() * 14) + 1;
-    const date = `2026-02-${day.toString().padStart(2, '0')}`;
+    // Random date within next 30 days
+    const eventDateObj = new Date(todayForGen);
+    eventDateObj.setDate(todayForGen.getDate() + Math.floor(Math.random() * 30));
+    const dateStr = eventDateObj.toISOString().split('T')[0];
 
     eventsData.push({
         id: i,
-        title: `${genre.charAt(0).toUpperCase() + genre.slice(1)} Event #${i}`,
+        title: `${genre.charAt(0).toUpperCase() + genre.slice(1)} @ ${venue.name}`,
         genre: genre,
-        date: date,
+        date: dateStr,
         time: `${Math.floor(Math.random() * 6) + 18}:00`,
         venue: `${venue.name} ${quartier.name.charAt(0).toUpperCase() + quartier.name.slice(1)}`,
         venueType: venue.type,
         quartier: quartier.name,
-        address: `Rue ${i}, ${quartier.name}`,
+        address: `Secteur ${i}, ${quartier.name.toUpperCase()}`,
         price: `${(Math.floor(Math.random() * 10) + 2) * 1000} FCFA`,
-        description: `Un événement exceptionnel de ${genre} à ne pas manquer !`,
+        description: `Un événement exceptionnel de ${genre} à ne pas manquer ! Découvrez la richesse culturelle de Dakar.`,
         lat: lat,
         lng: lng
     });
@@ -83,18 +87,18 @@ for (let i = 21; i <= 120; i++) {
 // ===================================
 let currentFilters = {
     genre: [],
-    date: 'today',
+    date: 'month',
     quartier: [],
     venue: []
 };
 
-let displayedEvents = 6;
-const eventsPerLoad = 6;
+let displayedEvents = 12;
+const eventsPerLoad = 12;
 let map = null;
 let markers = [];
 let userLocation = null;
 let filteredEvents = [];
-let currentView = 'map'; // Default view
+let currentView = 'list'; // Default view to list so user sees data immediately
 
 // ===================================
 // UTILITY FUNCTIONS
@@ -154,12 +158,14 @@ function updateFilteredEvents() {
                 return dayOfWeek === 0 || dayOfWeek === 6;
             case 'week':
                 const weekFromNow = new Date(today);
-                weekFromNow.setDate(weekFromNow.getDate() + 7);
+                weekFromNow.setDate(today.getDate() + 7);
                 return eventDate >= today && eventDate <= weekFromNow;
             case 'month':
-                return eventDate.getMonth() === today.getMonth() &&
-                    eventDate.getFullYear() === today.getFullYear();
+                const monthFromNow = new Date(today);
+                monthFromNow.setDate(today.getDate() + 30);
+                return eventDate >= today && eventDate <= monthFromNow;
             default:
+                if (currentFilters.date === 'all') return true;
                 if (currentFilters.date.includes('-')) { // Custom date picker
                     const customDate = new Date(currentFilters.date);
                     return eventDate.toDateString() === customDate.toDateString();
